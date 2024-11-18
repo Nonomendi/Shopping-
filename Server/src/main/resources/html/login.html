@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <title>Title</title>
-      <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body onload="loginPage()">
-    <section id="login_form">
-        <form action="" method="GET">
-            <table>
-                <tr>
-                    <td><label for="name">Name: </label></td>
-                    <td><input id="name" type="text" name="name" required></td>
-                </tr>
-                <tr>
-                    <td><label for="email">Email: </label></td>
-                    <td><input id="email" type="email" name="email" required></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><input type="submit" value="Sign in" id="login"></td>
-                </tr>
-            </table>
-        </form>
-    </section>
-    <a href="index.html"><img src="img/home.png " alt="edit" class="icons"/></a>
-  </body>
-  <script src="js/script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="hero">
+    <div class="hero-content">
+        <h1>Sign In</h1>
+        <p>Welcome back! Please sign in to continue.</p>
+    </div>
+</header>
+<section id="login_form" class="login-section">
+    <form id="loginForm" class="login-form">
+        <table>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input id="name" type="text" name="name" placeholder="Enter your name" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input id="email" type="email" name="email" placeholder="Enter your email" required></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Sign in" id="login">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <a href="index.html">
+        <img src="img/home.png" alt="home" class="icons">
+    </a>
+</section>
+<script src="js/login.js"></script>
+</body>
 </html>

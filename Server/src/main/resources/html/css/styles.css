@@ -1,22 +1,31 @@
 body {
     align-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f2; /* Light sweet pink background */
+    color: #333; /* Neutral text color for good readability */
 }
 
 table {
     border-collapse: collapse;
     margin-top: 20px;
     text-align: center;
+    width: 100%;
+    background-color: #fff; /* White background for contrast */
+    border: 1px solid #f7cce2; /* Soft pink border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #f7cce2; /* Soft pink border */
     padding: 8px;
     text-align: left;
     height: 100%;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #ff99cc; /* Sweet pink header */
+    color: white; /* White text for contrast */
+    font-weight: bold;
 }
 
 input {
@@ -24,17 +33,23 @@ input {
     padding: 10px;
     margin: 10px 0;
     box-sizing: border-box;
+    border: 1px solid #ffb6c1; /* Sweet pink border */
+    border-radius: 5px;
+    background-color: #ffe6f2; /* Light sweet pink */
 }
 
 input[type="submit"] {
     cursor: pointer;
-    background-color: dodgerblue;
+    background-color: #ff66b2; /* Vibrant pink for buttons */
     color: white;
     border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #0a5ad1;
+    background-color: #e60073; /* Deeper pink for hover */
 }
 
 input[type="checkbox"] {
@@ -52,4 +67,12 @@ input[type="checkbox"] {
     display: inline-block;
     text-align: center;
     align-items: center;
+    background-color: #ff99cc; /* Sweet pink for icons */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.icons:hover {
+    background-color: #e60073; /* Deeper pink on hover */
+    transform: scale(1.1); /* Slight zoom effect */
 }
