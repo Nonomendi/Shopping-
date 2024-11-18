@@ -1,0 +1,55 @@
+body {
+    align-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    height: 100%;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+}
+
+input[type="submit"]:hover {
+    background-color: #0a5ad1;
+}
+
+input[type="checkbox"] {
+    display: block;
+    margin: 0 auto;
+    width: 20px;
+}
+
+.icons {
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+}

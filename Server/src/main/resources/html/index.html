@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body onload="openStore()">
+        <section>
+            <form>
+                <a href="add_product.html"><img src="./img/add.png" alt="add" id="add" class="icons"></a>
+                <img id="delete" src="img/delete.png" alt="delete" onclick="deleteProducts()" class="icons"/>
+                <a href="./login.html"><img src="img/login.png" alt="login" id="login" class="icons"/></a>
+                <a href="./basket.html"><img src="img/cart.png" alt="basket" id="basket" class="icons"/></a>
+                <div id="results"></div>
+            </form>
+        </section>
+    </body>
+    <script src="js/script.js"></script>
+</html>

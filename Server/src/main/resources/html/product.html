@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Product</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body onload="viewProduct()">
+        <section>
+            <table>
+                <tr>
+                    <td><h3>Item</h3></td>
+                    <td id="item-name">Item name</td>
+                </tr>
+                <tr>
+                    <td><h3>Description</h3></td>
+                    <td id="item-description">Item description</td>
+                </tr>
+                <tr>
+                    <td><h3>Price</h3></td>
+                    <td id="item-price">Item price</td>
+                </tr>
+            </table>
+            <img src="img/delete.png" alt="delete" onclick="deleteProduct()" class="delete icons"/>
+            <img src="img/edit.png" alt="edit" onclick="editFormView()" class="edit icons"/>
+            <a href="index.html"><img src="img/home.png " alt="edit" class="icons"/></a>
+            <div id="item_update"></div>
+        </section>
+    </body>
+    <script src="js/script.js"></script>
+</html>

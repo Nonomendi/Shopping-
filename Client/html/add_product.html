@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add new product</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body onload="addProduct()">
+        <a href="index.html"><img src="img/home.png " alt="edit" class="icons"/></a>
+        <form action="" id="product_add_form">
+            <table>
+                <tr>
+                    <td><label for="product_name">Product name</label></td>
+                    <td><input id="product_name" type="text" name="product_name" placeholder="Enter product name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="product_desc">Description</label></td>
+                    <td><input id="product_desc" type="text" name="product_desc" placeholder="Enter product description" required></td>
+                </tr>
+                <tr>
+                    <td><label for="product_price">Price R </label></td>
+                    <td><input id="product_price" type="text" name="product_price" placeholder="Enter product price omitting currency sign" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center; padding: 0">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script src="js/script.js"></script>
+</html>
