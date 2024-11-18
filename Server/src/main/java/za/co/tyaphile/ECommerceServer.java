@@ -65,7 +65,7 @@ public class ECommerceServer {
         ECommerceServer server = new ECommerceServer();
         server.start();
     }
-
+//server//
     private TemplateEngine templateEngine() {
         TemplateEngine templateEngine = new TemplateEngine();
         ClassLoaderTemplateResolver resolver = new ClassLoaderTemplateResolver();
