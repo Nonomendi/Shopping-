@@ -38,14 +38,14 @@ function editFormView() {
     const urlParams = new URLSearchParams(window.location.search);
 
     document.getElementById("item_update").innerHTML = '<form action="product_update.html" id="update_item">' +
-            '<label for="update_name"></label>' +
-            '<input id="update_name" type="text" name="update_name" placeholder="Enter product name" required><br/>' +
-            '<label for="update_desc"></label>' +
-            '<input id="update_desc" type="text" name="update_desc" placeholder="Enter product description" required><br/>' +
-            '<label for="update_price"></label>' +
-            '<input id="update_price" type="text" name="update_price" placeholder="Enter product price omitting currency sign" required><br/>' +
-            '<input type="hidden" name="id" value="' + urlParams.get("id") + '">' +
-            '<input type="submit" value="Update product">' +
+        '<label for="update_name"></label>' +
+        '<input id="update_name" type="text" name="update_name" placeholder="Enter product name" required><br/>' +
+        '<label for="update_desc"></label>' +
+        '<input id="update_desc" type="text" name="update_desc" placeholder="Enter product description" required><br/>' +
+        '<label for="update_price"></label>' +
+        '<input id="update_price" type="text" name="update_price" placeholder="Enter product price omitting currency sign" required><br/>' +
+        '<input type="hidden" name="id" value="' + urlParams.get("id") + '">' +
+        '<input type="submit" value="Update product">' +
         '</form>';
 }
 
@@ -266,86 +266,69 @@ async function getActiveOrder() {
                                     <input type="submit" value="Pay R ${data.total} now">
                                  </form>`;
 
-            document.getElementById("make_payment").addEventListener("submit", async function(evt){
-                evt.preventDefault();
-
-                data.paid = true;
-                await fetch(domainName + "/order/" + data.id, {
-                    method: 'PUT',
-                    headers: {'Accept': "application/json",},
-                    body: JSON.stringify(data),
-                }).then(response => response.json())
-                    .then(data => {
-                        if (data.paid) {
-                            window.location.replace("./checkout.html?id=" + data.id);
-                        } else {
-                            content.innerHTML = "Failed to forward you to the checkout page";
-                            payment.innerHTML = "<a href='./checkout.html?id='" +  + data.id + ">Click here</a> to got to order confirmation."
-                        }
-                    });
-            });
         });
 }
 
-async function confirmPayment() {
-    const urlParams = new URLSearchParams(window.location.search);
-    await fetch(domainName + "/order/" + urlParams.get("id"), {
-        method: 'GET',
-        headers: {'Accept': "application/json",},
-    }).then(response => response.json())
-        .then(async data => {
-            document.getElementById('amount').innerText = data.total;
-            let product_list = document.getElementById('product_list');
-            product_list.append(await productListTable(data));
-        });
-}
-
-async function getHistoryOrders() {
-
-}
-
-async function loginPage() {
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (userID != null) {
-        let manage = document.getElementById("login_form");
-
-        manage.innerHTML = '<div style="color: blue; cursor: pointer" onclick="deleteAccount()">Delete account</div><br/>' +
-            '<div style="color: blue; cursor: pointer" onclick="signOut()">Log out</div>'
-    } else if (urlParams.size === 2) {
-        await fetch(domainName + "/customer", {
-            method: 'POST',
-            headers: { 'Accept': "application/json", },
-            body: JSON.stringify({name: urlParams.get("name"), email: urlParams.get("email")})
-        }).then(response => response.json())
-            .then(data => {
-                if (data.code === "BAD_REQUEST") {
-                    alert("The email address you tried to use is being used by another user");
-                    window.location.replace("./login.html");
-                } else {
-                    setSession(data.id);
-                    window.location.reload();
-                }
-            });
-    }
-}
-
-async function deleteAccount() {
-    await fetch(domainName + "/customer/" + userID);
-    signOut();
-}
-
-function signOut() {
-    userID = null;
-    localStorage.removeItem("userId");
+function redirectToHome() {
     window.location.replace("./index.html");
 }
 
-function setSession(id) {
-    userID = id;
-    localStorage.setItem("userId", id);
+function getSession() {
+    let userData = JSON.parse(localStorage.getItem("user_data"));
+    return userData == null ? null : userData.id;
 }
 
-function getSession() {
-    return localStorage.getItem("userId");
+async function login() {
+    const form = document.getElementById("loginForm");
+
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        await fetch(domainName + '/auth/login', {
+            method: 'POST',
+            headers: { 'Accept': "application/json", },
+            body: JSON.stringify({ email, password })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == "BAD_REQUEST") {
+                    alert(data.message);
+                } else {
+                    let sessionData = { id: data.id, name: data.name };
+                    localStorage.setItem("user_data", JSON.stringify(sessionData));
+                    window.location.replace("./welcomepage.html");
+                }
+            });
+    });
+}
+
+async function signup() {
+    const form = document.getElementById("signupForm");
+
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        await fetch(domainName + '/auth/signup', {
+            method: 'POST',
+            headers: { 'Accept': "application/json", },
+            body: JSON.stringify({ name, email, password })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == "BAD_REQUEST") {
+                    alert(data.message);
+                } else {
+                    let sessionData = { id: data.id, name: data.name };
+                    localStorage.setItem("user_data", JSON.stringify(sessionData));
+                    window.location.replace("./welcomepage.html");
+                }
+            });
+    });
 }

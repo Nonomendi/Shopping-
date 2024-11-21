@@ -1,53 +1,50 @@
 body {
     align-content: center;
-    font-family: Arial, sans-serif;
-    background-color: #efcddd; /* Light sweet pink background */
-    color: #333; /* Neutral text color for good readability */
 }
+
 table {
     border-collapse: collapse;
     margin-top: 20px;
     text-align: center;
-} 
- 
-th, td {
-    border: 1px solid #382f2f;
-    padding: 8px;
-    text-align: left;
-    height: 100%; 
-} 
-
-th {
-    background-color: #eb9fb7;
 }
 
-input { 
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    height: 100%;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+input {
     width: 100%;
-    padding: 10px; 
+    padding: 10px;
     margin: 10px 0;
     box-sizing: border-box;
 }
 
 input[type="submit"] {
-    cursor: pointer; 
-    background-color: rgb(216, 135, 201);
+    cursor: pointer;
+    background-color: dodgerblue;
     color: white;
     border: none;
 }
 
-  
 input[type="submit"]:hover {
-    background-color: #c384a9;
+    background-color: #0a5ad1;
 }
 
 input[type="checkbox"] {
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
     width: 20px;
 }
 
 .icons {
-    width: 22px; 
+    width: 22px;
     height: 22px;
     border-radius: 7px;
     cursor: pointer;
@@ -55,7 +52,4 @@ input[type="checkbox"] {
     display: inline-block;
     text-align: center;
     align-items: center;
-    background-color: #ff99cc; /* Sweet pink for icons */
-    color:rgb(240, 202, 211);
-    transition: background-color 0.3s ease;
-} 
+}
