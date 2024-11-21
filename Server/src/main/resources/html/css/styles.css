@@ -1,7 +1,9 @@
 body {
     align-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #efcddd; /* Light sweet pink background */
+    color: #333; /* Neutral text color for good readability */
 }
-
 table {
     border-collapse: collapse;
     margin-top: 20px;
@@ -9,14 +11,14 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #382f2f;
     padding: 8px;
     text-align: left;
     height: 100%;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #eb9fb7;
 }
 
 input {
@@ -28,13 +30,14 @@ input {
 
 input[type="submit"] {
     cursor: pointer;
-    background-color: dodgerblue;
+    background-color: rgb(216, 135, 201);
     color: white;
     border: none;
 }
 
+
 input[type="submit"]:hover {
-    background-color: #0a5ad1;
+    background-color: #c384a9;
 }
 
 input[type="checkbox"] {
@@ -52,4 +55,7 @@ input[type="checkbox"] {
     display: inline-block;
     text-align: center;
     align-items: center;
+    background-color: #ff99cc; /* Sweet pink for icons */
+    color:rgb(240, 202, 211);
+    transition: background-color 0.3s ease;
 }
